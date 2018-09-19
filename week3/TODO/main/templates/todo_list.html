@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<table>
+    {% for t in tasks %}
+    <tr>
+        <td style="color:blue">{{task.Task}}</td>
+        <td>{{task.Created}}</td>
+        <td>{{task.Due}}</td>
+        <td>{{task.Owner}}</td>
+        <td><button class="DONE">{{task.Mark}}</button></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
