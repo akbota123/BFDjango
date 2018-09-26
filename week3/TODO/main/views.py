@@ -1,33 +1,27 @@
 from django.shortcuts import render
-
-# Create your views here.
+from datetime import datetime, timedelta
 
 from django.http import HttpResponse
-from datetime import date
 
-
-def tasks(request):
-    now=date.today()
+def listed(request):
     tasks=[{
-        'Task':'Task {}'.format(i),
-        'Created': now.strftime("%d/%m/%y"),
-        'Due': now.replace(day=now.day + 2).strftime("%d/%m/%y"),
+        'Name':'Task {}'.format(i),
+        'Created': datetime.today().strftime("%d/%m/%y"),
+        'Dueon':(datetime.today()+timedelta(days=2)).strftime("%d/%m/%y"),
         'Owner': 'admin',
         'Mark': 'Done',
-        'Complete': False}
-        for i in range(1, 5)]
+        'Isnotcompl': True
+    } for i in range (1,5)]
     context={'tasks': tasks}
-    return render(request, 'todo_list.html', context)
-
-
-def completed_tasks(request):
-    now = date.today()
-    tasks = {
-        'Task': 'Task 0',
-        'Created': now.strftime("%d/%m/%y"),
-        'Due': now.replace(day=now.day + 2).strftime("%d/%m/%y"),
-        'Owner': 'admin',
-        'Mark': 'Not Done',
-        'Complete': True
-    }
-    return render(request, 'completed_todo_list.html', tasks)
+    return render(request,'todo_list.html',context)
+def completed(request):
+    texts =[{
+        'Name': 'Task 0',
+        'Created': datetime.today().strftime("%d/%m/%y"),
+        'Dueon': (datetime.today()+timedelta(days=2)).strftime("%d/%m/%y"),
+        'Owner':'admin',
+        'Mark':'Not Done',
+        'Isnotcompl': False
+    }]
+    context = {'keys': texts}
+    return render(request,'completed_todo_list.html',context)

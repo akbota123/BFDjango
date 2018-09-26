@@ -1,20 +1,20 @@
 body{
     margin-left: 140px;
 }
-.b1{
+.button1{
     border-radius: 4px;
     background : RoyalBlue;
     padding:6px;
     color : White;
     border: none;
 }
-.b2{
+.button2{
     border-radius: 4px;
     background : Orange;
     padding:6px;
     border: none;
  }
-.b3{
+.button3{
     border-radius: 4px;
     background : Red;
     padding:6px;
