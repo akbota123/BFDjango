@@ -1,5 +1,12 @@
-body{
+            body{
     margin-left: 140px;
+}
+.filter{
+    padding: 0;
+    border: none;
+    background: none;
+    color: SkyBlue;
+    font-size:1em;
 }
 .button1{
     border-radius: 4px;
@@ -26,10 +33,9 @@ p{
     background:#282A37;
     padding: 10px;
     color: White;
-    margin-left:140px;
-
+    margin-left:-140px;
 }
-.DONE{
+.done{
     border-radius: 4px;
     background: #47A4BE;
     color: White;

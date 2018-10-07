@@ -2,7 +2,7 @@
 {% block body %}
 <form action="{%url 'add' %}">
     {% csrf_token %}
-    <button class = "button1">Add Task</button>
+    <button type="button" class="btn btn-primary" href="{% url 'add' %}">Add Task</button>
 </form>
 <hr>
 <h1>Tasks in "List 1"</h1>
@@ -35,8 +35,8 @@
         <td style="color:#5086EB;">{{task.name_t}}</td>
         <td>{{task.created}} </td>
         <td>{{task.dueon}}</td>
-        <td><a href="{%url 'detail' task.owner.id%}">{{task.owner.name}}</a></td>
-        <td><form action="{% url 'done' task.id %}">
+        <td>{{task.owner.name}}</td>
+            <td><form action="{% url 'done' task.id %}">
             <button class = "done">
             {%if task.mark %}
                 Not Done
@@ -47,7 +47,7 @@
             </form>
         </td>
         <td> <a href="{% url 'delete' task.id %}">
-                <button class = "button3">Delete</button>
+                <button type="button" class="btn btn-danger">Delete</button>
              </a>
         </td>
 
@@ -56,5 +56,6 @@
 </table>
 <br>
     <a href="{% url 'completed' %}"><button class = "button2">View Completed tasks</button></a>
+    <a href="{% url 'todos' %}"><button class = "button3">View Tasks</button></a>
 
 {% endblock %}

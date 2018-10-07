@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.datetime_safe import time
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -18,5 +19,5 @@ class Task(models.Model):
     mark=models.BooleanField()
 
     def __str__(self):
-        return "{},{},{},{}".format(self.name_t, self.created, self.dueon, self.owner)
+        return self.name_t
 
