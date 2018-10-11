@@ -2,31 +2,32 @@
 {% block body %}
 <form action="{%url 'add' %}">
     {% csrf_token %}
-    <button type="button" class="btn btn-primary" href="{% url 'add' %}">Add Task</button>
+    <button class="btn btn-primary" href="{% url 'add' %}">Add task</button>
+
 </form>
 <hr>
 <h1>Tasks in "List 1"</h1>
 <table>
     <tr>
-        <form action="{%url 'order_by' 'name_t' %}">
+       <form action="{%url 'order_by' 'name_t' %}">
             {% csrf_token %}
-            <td><button class = "filter">Task&#129055;</button></td>
+            <td><button class = "filter">Task</button></td>
         </form>
         <form action="{%url 'order_by' 'created' %}">
             {% csrf_token %}
-            <td><button class = "filter">Created Time&#129055;</button></td>
+            <td>Created Time</td>
         </form>
         <form action="{%url 'order_by' 'dueon' %}">
             {% csrf_token %}
-            <td><button class = "filter">Due On&#129055;</button></td>
+            <td>Due On</td>
         </form>
         <form action="{%url 'order_by' 'owner' %}">
             {% csrf_token %}
-           <td> <button class = "filter">Owner&#129055;</button></td>
+           <td>Owner</td>
         </form>
         <form action="{%url 'order_by' 'mark' %}">
             {% csrf_token %}
-            <td><button class = "filter">Mark&#129055;</button></td>
+            <td>Mark</td>
         </form>
         <td>Activity </td>
     </tr>
@@ -39,9 +40,9 @@
             <td><form action="{% url 'done' task.id %}">
             <button class = "done">
             {%if task.mark %}
-                Not Done
-            {%else%}
                 Done
+            {%else%}
+                Not Done
             </button>
             {%endif%}
             </form>

@@ -51,7 +51,7 @@ def detail(request, task_id):
 
 
 def delete(request, task_id):
-    task=Task.objects.exclude(pk=task_id)
+    task=Task.objects.delete()
     context={'Task': task}
     return render(request, 'list.html', context)
 
