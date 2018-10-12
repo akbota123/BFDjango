@@ -17,7 +17,7 @@ def home(request):
 def list(request):
     tasks = Task.objects.all()
     context = {'Task': tasks}
-    return render(request, 'list/list.html', context)
+    return render(request, 'completed_todo_list.html', context)
 
 
 def list_filter(request, f):
