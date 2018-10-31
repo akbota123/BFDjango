@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block header %}
+{% if user.is_authenticated %}
+<a href="{% url 'add' %}"><button class="btn btn-info" type="button">Add restaurant</button></a>
+{% endif %}
+{% endblock %}
+
+{% block content%}
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Tel:</th>
+        {% if user.is_authenticated %}
+        <th>Delete?</th>
+        {% endif %}
+    </tr>
+    {% for rest in restaurants %}
+    <tr>
+        <th><a href="dishes/{{resto.id}}/">{{resto.name}}</a></th>
+        <th>{{rest.telephone}}</th>
+        {% if user.is_authenticated %}
+        <th><a href="./delete/{{resto.id}}"><button type="button" class="btn btn-primary">Delete</button></a></th>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock%}
