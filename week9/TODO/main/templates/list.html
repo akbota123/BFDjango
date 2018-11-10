@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <a href="{% url 'add' %}" class="btn btn-primary">ADD</a>
+    <ul class="list-group">
+        {% for author in users %}
+        <li class="list-group-item">
+            <h4>{{author.first_name}}</h4>
+            <p>{{author.email}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
