@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'main',
     'rest_framework',
     'rest_auth',
-
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +52,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
+
 
 ROOT_URLCONF = 'quiz.urls'
 

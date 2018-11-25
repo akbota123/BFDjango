@@ -15,3 +15,12 @@ class Advert(models.Model):
         return self.title
 
 
+class Comment(models.Model):
+    text=models.TextField()
+    email=models.EmailField()
+    review=models.CharField(max_length=100)
+    owner=models.ForeignKey(Advert, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.review
+
